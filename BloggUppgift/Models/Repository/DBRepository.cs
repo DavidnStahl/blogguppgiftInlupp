@@ -40,6 +40,7 @@ namespace BloggUppgift.Models
             using (BloggContext db = new BloggContext())
             {
                 model.BloggCategory.BloggInfo = db.BloggInfo.OrderByDescending(r => r.Date).ToList();
+                model.BloggCategories = db.BloggCategories.ToList();
             }
             return model;
         }
@@ -50,6 +51,7 @@ namespace BloggUppgift.Models
             {
                 model.BloggCategory.BloggInfo = db.BloggInfo.Where(r => r.Heading.StartsWith(model.BloggInfo.Heading))
                     .OrderByDescending(r => r.Date).ToList().ToList();
+                model.BloggCategories = db.BloggCategories.ToList();
             }
 
             return model;
@@ -64,6 +66,7 @@ namespace BloggUppgift.Models
                 model.BloggCategory.BloggInfo = db.BloggInfo.Where(r => r.CategoryId == model.BloggInfo.CategoryId)
                     .OrderByDescending(r => r.Date).ToList()
                     .ToList();
+                model.BloggCategories = db.BloggCategories.ToList();
             }
             return model;
             
@@ -78,6 +81,7 @@ namespace BloggUppgift.Models
                     .Where(r => r.Heading.StartsWith(model.BloggInfo.Heading))
                     .OrderByDescending(r => r.Date).ToList()
                     .ToList();
+                model.BloggCategories = db.BloggCategories.ToList();
             }
             return model;
         }
@@ -87,7 +91,8 @@ namespace BloggUppgift.Models
             var model = new ArchiveBloggViewModel();
             using (BloggContext db = new BloggContext())
             {
-                model.BloggInfo = db.BloggInfo.FirstOrDefault(r => r.Id == id);
+                model.BloggInfo = db.BloggInfo.First(r => r.Id == id);
+                model.BloggCategories = db.BloggCategories.ToList();
 
             }
             return model;

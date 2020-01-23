@@ -36,21 +36,17 @@ namespace BloggUppgift.Controllers
         {
 
             var model = Services.Instance.GetAll();
-            model.BloggCategories = Services.Instance.GetAllCategories().BloggCategories;
-
             return View(model);
         }
         [HttpGet]
         public IActionResult GetBySearch(ArchiveBloggViewModel model)
         {
             model = Services.Instance.GetBloggs(model);
-            model.BloggCategories = Services.Instance.GetAllCategories().BloggCategories;
             return View(model);
         }
         public IActionResult ViewBloggPost(int id)
         {
             var model = Services.Instance.GetBloggDetails(id);
-            model.BloggCategories = Services.Instance.GetAllCategories().BloggCategories;
             return View(model);
         }
 
