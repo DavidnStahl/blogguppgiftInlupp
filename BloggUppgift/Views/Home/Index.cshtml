@@ -2,17 +2,16 @@
 
 @{
     var today = DateTime.Now;
-
 }
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
-    <link href="~/css/style.css" rel="stylesheet" type="text/css" asp-append-version="true" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+<link href="~/css/style.css" rel="stylesheet" type="text/css" asp-append-version="true" />
 
 <div class="leftcontainer"></div>
 <div class="rightcontainer"></div>
 
 <div class="text-center">
     <h1 class="display-4">Fotbolls Blogg</h1>
-    
+
 
     <form asp-controller="Home" asp-action="CreateBlogg" method="post">
 
@@ -40,6 +39,10 @@
         <br />
         <span asp-validation-for="BloggInfo.BloggInput"></span>
     </form>
-    
+
 </div>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
 
